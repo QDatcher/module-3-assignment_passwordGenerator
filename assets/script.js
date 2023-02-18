@@ -1,8 +1,4 @@
 // Assignment code here
-const specialCharacters = ['\\','!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[',']','^','_','`','{','|','}','~'];
-console.log(specialCharacters)
-console.log(specialCharacters[0])
-
 const myPasswordGenerator = {
   _numbers: ['0','1','2','3','4','5','6','7','8','9'],
   _lowerCaseAlphabets: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
@@ -106,7 +102,13 @@ const myPasswordGenerator = {
 
 
   generatePassword: function(){
-
+    let characterList;
+    console.log(this._usingLowerCase,this._usingNumbers,this._usingSpecials,this._usingUpperCase)
+    this.confirmLowerCase();
+    this.confirmUpperCase();
+    this.confirmNumber();
+    this.confirmSpecials();
+    console.log(this._usingLowerCase,this._usingNumbers,this._usingSpecials,this._usingUpperCase)
   }
 }
 // Get references to the #generate element
@@ -114,7 +116,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = myPasswordGenerator.generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
