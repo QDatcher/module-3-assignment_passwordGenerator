@@ -1,5 +1,6 @@
 // Assignment code here
 const myPasswordGenerator = {
+  //These are the beginning values for our character selection
   _numbers: ['0','1','2','3','4','5','6','7','8','9'],
   _lowerCaseAlphabets: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
   _upperCaseAlphabets: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
@@ -9,6 +10,7 @@ const myPasswordGenerator = {
   _usingUpperCase: true,
   _usingSpecials: true,
 
+  //These are functions designed to change the boolean value of our "using" values denoting which characters will be used
   setUsingNumbers: function(input){
     this._usingNumbers = input;
   },
@@ -24,6 +26,8 @@ const myPasswordGenerator = {
   setUsingSpecials: function(input){
     this._usingSpecials = input;
   },
+
+// These methods tell us whether or not our user wants to exclude/include any of the 4 types of characters
 
   confirmNumber: function(){
     
@@ -68,6 +72,7 @@ const myPasswordGenerator = {
     }
   },
 
+  //This is where the magic happens and our password is generated
 
   generatePassword: function(){
     let characterList = [];
