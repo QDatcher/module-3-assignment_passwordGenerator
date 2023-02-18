@@ -11,9 +11,55 @@ const myPasswordGenerator = {
   _usingNumbers: true,
   _usingLowerCase: true,
   _usingUpperCase: true,
-  _usingSpecials: true
+  _usingSpecials: true,
 
-  
+  getNumbers: function(){
+    return this._numbers;
+  },
+
+  getLowerCaseAlphabets: function(){
+    return this._lowerCaseAlphabets
+  },
+
+  getUpperCaseAlphabets: function(){
+    return this._upperCaseAlphabets;
+  },
+
+  getSpecialCharacters: function(){
+    return this._specialCharacters
+  },
+
+  getUsingNumbers: function(){
+    return this._usingNumbers
+  },
+
+  setUsingNumbers: function(input){
+
+  },
+
+  getUsingUpperCase: function(){
+    return this._usingUpperCase;
+  },
+
+  setUsingUpperCase: function(input){
+
+  },
+
+  getUsingLowerCase: function(){
+    return this._usingLowerCase;
+  },
+
+  setUsingLoweCase: function(input){
+
+  },
+
+  getUsingSpecials: function(){
+    return this._usingSpecials;
+  }
+
+  generatePassword: function(){
+
+  }
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
