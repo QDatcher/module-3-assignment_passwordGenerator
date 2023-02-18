@@ -9,48 +9,32 @@ const myPasswordGenerator = {
   _usingUpperCase: true,
   _usingSpecials: true,
 
-  getNumbers: function(){
+  get numbers(){
     return this._numbers;
   },
 
-  getLowerCaseAlphabets: function(){
+  get lowerCaseAlphabets(){
     return this._lowerCaseAlphabets
   },
 
-  getUpperCaseAlphabets: function(){
+  get upperCaseAlphabets(){
     return this._upperCaseAlphabets;
   },
 
-  getSpecialCharacters: function(){
+  get specialCharacters(){
     return this._specialCharacters
-  },
-
-  getUsingNumbers: function(){
-    return this._usingNumbers
   },
 
   setUsingNumbers: function(input){
     this._usingNumbers = input;
   },
 
-  getUsingUpperCase: function(){
-    return this._usingUpperCase;
-  },
-
   setUsingUpperCase: function(input){
     this._usingUpperCase = input;
   },
 
-  getUsingLowerCase: function(){
-    return this._usingLowerCase;
-  },
-
   setUsingLoweCase: function(input){
     this._usingLowerCase = input;
-  },
-
-  getUsingSpecials: function(){
-    return this._usingSpecials;
   },
 
   setUsingSpecials: function(input){
@@ -103,12 +87,16 @@ const myPasswordGenerator = {
 
   generatePassword: function(){
     let characterList;
-    console.log(this._usingLowerCase,this._usingNumbers,this._usingSpecials,this._usingUpperCase)
+    console.log(this._usingLowerCase,this._usingUpperCase,this._usingNumbers,this._usingSpecials )
     this.confirmLowerCase();
     this.confirmUpperCase();
     this.confirmNumber();
     this.confirmSpecials();
-    console.log(this._usingLowerCase,this._usingNumbers,this._usingSpecials,this._usingUpperCase)
+
+    console.log(this._usingLowerCase,this._usingUpperCase,this._usingNumbers,this._usingSpecials )
+    if(this._usingLowerCase){
+      
+    }
   }
 }
 // Get references to the #generate element
@@ -126,4 +114,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-console.log(myPasswordGenerator.getNumbers())
