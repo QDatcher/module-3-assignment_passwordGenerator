@@ -34,7 +34,7 @@ const myPasswordGenerator = {
   },
 
   setUsingNumbers: function(input){
-
+    this._usingNumbers = input;
   },
 
   getUsingUpperCase: function(){
@@ -42,7 +42,7 @@ const myPasswordGenerator = {
   },
 
   setUsingUpperCase: function(input){
-
+    this._usingUpperCase = input;
   },
 
   getUsingLowerCase: function(){
@@ -50,7 +50,7 @@ const myPasswordGenerator = {
   },
 
   setUsingLoweCase: function(input){
-
+    this._usingLowerCase = input;
   },
 
   getUsingSpecials: function(){
@@ -58,7 +58,7 @@ const myPasswordGenerator = {
   },
 
   setUsingSpecials: function(input){
-
+    this._usingSpecials = input;
   },
 
   confirmNumber: function(){
