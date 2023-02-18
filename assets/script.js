@@ -9,22 +9,6 @@ const myPasswordGenerator = {
   _usingUpperCase: true,
   _usingSpecials: true,
 
-  get numbers(){
-    return this._numbers;
-  },
-
-  get lowerCaseAlphabets(){
-    return this._lowerCaseAlphabets
-  },
-
-  get upperCaseAlphabets(){
-    return this._upperCaseAlphabets;
-  },
-
-  get specialCharacters(){
-    return this._specialCharacters
-  },
-
   setUsingNumbers: function(input){
     this._usingNumbers = input;
   },
@@ -86,17 +70,27 @@ const myPasswordGenerator = {
 
 
   generatePassword: function(){
-    let characterList;
-    console.log(this._usingLowerCase,this._usingUpperCase,this._usingNumbers,this._usingSpecials )
+    let characterList = [];
+
     this.confirmLowerCase();
     this.confirmUpperCase();
     this.confirmNumber();
     this.confirmSpecials();
 
-    console.log(this._usingLowerCase,this._usingUpperCase,this._usingNumbers,this._usingSpecials )
     if(this._usingLowerCase){
-      
+      characterList = characterList.concat(this._lowerCaseAlphabets)
     }
+    if(this._usingUpperCase){
+      characterList = characterList.concat(this._upperCaseAlphabets)
+    }
+    if(this._usingNumbers){
+      characterList = characterList.concat(this._numbers)
+    }
+    if(this._usingSpecials){
+      characterList = characterList.concat(this._specialCharacters)
+    }
+
+
   }
 }
 // Get references to the #generate element
