@@ -72,11 +72,23 @@ const myPasswordGenerator = {
     }
   },
 
+  howManyCharacters: function(){
+    let number = prompt("Give a number from range 8 - 128");
+    if( 8<= number >= 128){
+      return number;
+    } else if( 8 > number || number > 128){
+      alert('Number selected is outside of the boundery')
+    } else {
+      alert('Invalid input')
+    }
+  },
+
   //This is where the magic happens and our password is generated
 
   generatePassword: function(){
     let characterList = [];
-
+    let password = [];
+    let passwordLimit;
     this.confirmLowerCase();
     this.confirmUpperCase();
     this.confirmNumber();
@@ -95,6 +107,12 @@ const myPasswordGenerator = {
       characterList = characterList.concat(this._specialCharacters)
     }
 
+    for(let i = 0; i < passwordLimit; i++){
+      const randoNumber = Math.floor(Math.random()*characterList.length)
+      password.push(characterList[randoNumber])
+    }
+
+    const finalPassword = password.join('')
 
   }
 }
@@ -113,3 +131,4 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+console.log( 1 >= '1')
