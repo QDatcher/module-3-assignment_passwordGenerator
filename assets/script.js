@@ -55,7 +55,55 @@ const myPasswordGenerator = {
 
   getUsingSpecials: function(){
     return this._usingSpecials;
-  }
+  },
+
+  setUsingSpecials: function(input){
+
+  },
+
+  confirmNumber: function(){
+    
+      const response = confirm("Do you want to use numbers?");
+
+      if (response) {
+          this.setUsingNumbers(true)
+      } else {
+        this.setUsingNumbers(false)
+      }
+  },
+  confirmUpperCase: function(){
+    
+    const response = confirm("Do you want to use uppercase letters?");
+
+    if (response) {
+        this.setUsingUpperCase(true)
+    } else {
+      this.setUsingUpperCase(false)
+    }
+  },
+
+  confirmLowerCase: function(){
+    
+    const response = confirm("Do you want to use lowercase letters?");
+
+    if (response) {
+        this.setUsingLoweCase(true)
+    } else {
+      this.setUsingLoweCase(false)
+    }
+  },
+
+  confirmSpecials: function(){
+    
+    const response = confirm("Do you want to use special characters?");
+
+    if (response) {
+      this.setUsingSpecials(true)
+    } else {
+      this.setUsingSpecials(false)
+    }
+  },
+
 
   generatePassword: function(){
 
