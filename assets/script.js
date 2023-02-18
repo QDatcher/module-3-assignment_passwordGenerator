@@ -93,6 +93,9 @@ const myPasswordGenerator = {
     this.confirmUpperCase();
     this.confirmNumber();
     this.confirmSpecials();
+    this.howManyCharacters().then((response)=>{
+      passwordLimit = response;
+    })
 
     if(this._usingLowerCase){
       characterList = characterList.concat(this._lowerCaseAlphabets)
@@ -113,6 +116,7 @@ const myPasswordGenerator = {
     }
 
     const finalPassword = password.join('')
+    return finalPassword;
 
   }
 }
