@@ -1,7 +1,7 @@
 // Assignment code here
 const myPasswordGenerator = {
   //These are the beginning values for our character selection
-  _numbers: ['0','1','2','3','4','5','6','7','8','9'],
+  _numbers: ['0','1','2','3','4','5','6','7','8','9','0','1','2','3','4','5','6','7','8','9','0','1','2','3','4','5','6','7','8','9',],
   _lowerCaseAlphabets: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
   _upperCaseAlphabets: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
   _specialCharacters: ['\\','!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[',']','^','_','`','{','|','}','~'],
@@ -72,30 +72,33 @@ const myPasswordGenerator = {
     }
   },
 
-  howManyCharacters: function(){
-    let number = prompt("Give a number from range 8 - 128");
-    if( 8<= number >= 128){
-      return number;
-    } else if( 8 > number || number > 128){
-      alert('Number selected is outside of the boundery')
-    } else {
-      alert('Invalid input')
-    }
-  },
-
   //This is where the magic happens and our password is generated
 
   generatePassword: function(){
     let characterList = [];
     let password = [];
-    let passwordLimit;
     this.confirmLowerCase();
     this.confirmUpperCase();
     this.confirmNumber();
     this.confirmSpecials();
-    this.howManyCharacters().then((response)=>{
-      passwordLimit = response;
-    })
+
+    if(!this._usingLowerCase && !this._usingNumbers && !this._usingSpecials && !this._usingUpperCase){
+      alert('Select atleast 1 character type')
+      return 'Try again :)';
+    }
+
+
+    let number = prompt("Give a number from range 8 - 128");
+    number = Number(number);
+    console.log(typeof number, number)
+    if( 8<= number <= 128){
+      
+    } else if( 8 > number || number > 128){
+      alert('Number selected is outside of the boundery')
+    } else {
+      alert('Invalid input')
+    }
+
 
     if(this._usingLowerCase){
       characterList = characterList.concat(this._lowerCaseAlphabets)
@@ -110,7 +113,7 @@ const myPasswordGenerator = {
       characterList = characterList.concat(this._specialCharacters)
     }
 
-    for(let i = 0; i < passwordLimit; i++){
+    for(let i = 0; i < number; i++){
       const randoNumber = Math.floor(Math.random()*characterList.length)
       password.push(characterList[randoNumber])
     }
@@ -135,4 +138,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-console.log( 1 >= '1')
