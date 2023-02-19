@@ -120,7 +120,7 @@ const myPasswordGenerator = {
       return "You won't get a password that way :P";
     }
     number = Number(number);
-    console.log(number)
+
     if( 8<= number && number <= 128){
 
 //If the criteria is met then the for loop selects random characters from out characterList to push into the password      
