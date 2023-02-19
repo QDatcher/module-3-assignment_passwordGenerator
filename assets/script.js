@@ -72,11 +72,16 @@ const myPasswordGenerator = {
     }
   },
 
+  greeting: function(){
+    alert('Welcome to password generator. When answering the prompts please select "Ok" for yes and "cancel" for no')
+  },
+
   //This is where the magic happens and our password is generated
 
   generatePassword: function(){
     let characterList = [];
     let password = [];
+    this.greeting();
     this.confirmLowerCase();
     this.confirmUpperCase();
     this.confirmNumber();
@@ -86,19 +91,7 @@ const myPasswordGenerator = {
       alert('Select atleast 1 character type')
       return 'Try again :)';
     }
-
-
-    let number = prompt("Give a number from range 8 - 128");
-    number = Number(number);
-    console.log(typeof number, number)
-    if( 8<= number <= 128){
-      
-    } else if( 8 > number || number > 128){
-      alert('Number selected is outside of the boundery')
-    } else {
-      alert('Invalid input')
-    }
-
+    
 
     if(this._usingLowerCase){
       characterList = characterList.concat(this._lowerCaseAlphabets)
@@ -113,10 +106,25 @@ const myPasswordGenerator = {
       characterList = characterList.concat(this._specialCharacters)
     }
 
-    for(let i = 0; i < number; i++){
-      const randoNumber = Math.floor(Math.random()*characterList.length)
-      password.push(characterList[randoNumber])
+
+    let number = prompt("Give a number from range 8 - 128");
+    number = Number(number);
+
+    if( 8<= number && number <= 128){
+      
+      for(let i = 0; i < number; i++){
+        const randoNumber = Math.floor(Math.random()*characterList.length)
+        password.push(characterList[randoNumber])
+      }
+    } else if( 8 > number || number > 128){
+      alert('Number selected is outside of the boundery')
+      return 'Try again :)';
+    } else {
+      alert('Invalid input')
+      return 'Try again :)';
     }
+
+
 
     const finalPassword = password.join('')
     return finalPassword;
