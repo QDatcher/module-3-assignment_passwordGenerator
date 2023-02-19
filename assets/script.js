@@ -75,7 +75,7 @@ const myPasswordGenerator = {
   //This is a simple greeting for explaining how to operate the password generator
 
   greeting: function(){
-    alert('Welcome to password generator. When answering the prompts please select "Ok" for yes and "cancel" for no')
+    alert('Welcome to password generator. When answering the prompts please select "Ok" for yes and "Cancel" for no')
   },
 
   //This is where the magic happens and our password is generated
@@ -115,8 +115,12 @@ const myPasswordGenerator = {
 //This prompts the user to give us a number between 8-128 and validates the response to make sure it meets the criteria
 
     let number = prompt("Give a number from range 8 - 128");
+    if(number == null){
+      alert('generator cancelled');
+      return "You won't get a password that way :P";
+    }
     number = Number(number);
-
+    console.log(number)
     if( 8<= number && number <= 128){
 
 //If the criteria is met then the for loop selects random characters from out characterList to push into the password      
