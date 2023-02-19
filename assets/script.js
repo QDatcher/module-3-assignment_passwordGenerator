@@ -72,6 +72,8 @@ const myPasswordGenerator = {
     }
   },
 
+  //This is a simple greeting for explaining how to operate the password generator
+
   greeting: function(){
     alert('Welcome to password generator. When answering the prompts please select "Ok" for yes and "cancel" for no')
   },
@@ -87,11 +89,15 @@ const myPasswordGenerator = {
     this.confirmNumber();
     this.confirmSpecials();
 
+//This validates that at least one character type has been selected
+
     if(!this._usingLowerCase && !this._usingNumbers && !this._usingSpecials && !this._usingUpperCase){
       alert('Select atleast 1 character type')
       return 'Try again :)';
     }
     
+//This adds the selected types of characters to our characterList (basically the pool our generator can select characters from)
+
 
     if(this._usingLowerCase){
       characterList = characterList.concat(this._lowerCaseAlphabets)
@@ -106,16 +112,22 @@ const myPasswordGenerator = {
       characterList = characterList.concat(this._specialCharacters)
     }
 
+//This prompts the user to give us a number between 8-128 and validates the response to make sure it meets the criteria
 
     let number = prompt("Give a number from range 8 - 128");
     number = Number(number);
 
     if( 8<= number && number <= 128){
+
+//If the criteria is met then the for loop selects random characters from out characterList to push into the password      
       
       for(let i = 0; i < number; i++){
         const randoNumber = Math.floor(Math.random()*characterList.length)
         password.push(characterList[randoNumber])
       }
+
+//If the criteria isn't met, the user will be informed the reason and will be promted to "Try again :)"     
+      
     } else if( 8 > number || number > 128){
       alert('Number selected is outside of the boundery')
       return 'Try again :)';
@@ -124,7 +136,7 @@ const myPasswordGenerator = {
       return 'Try again :)';
     }
 
-
+//The finalPassword is made by taking the password array and turning it into a string
 
     const finalPassword = password.join('')
     return finalPassword;
